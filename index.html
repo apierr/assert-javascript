@@ -17,6 +17,9 @@
 <body>
     <div id="result"></div>
 <script>
+(function (document) {
+    'use strict';
+
     var assert = function assert (outcome, descriptio) {
         var li = document.createElement('li');
 
@@ -28,12 +31,15 @@
     var someArray = [1, 2, 3, 4, 5];
     var count = 0;
 
-    for (var i = 0; i < someArray.length; i = i + 1) {(function (i) {
+    for (let i = 0; i < someArray.length; i = i + 1) {(function (i) {
             setTimeout(function () {
                 assert(count ++ === i, 'It should return ' + i);
             }, i * 1000);
         }(i));
     }
+
+}(this.document));
+
 
 </script>
 </body>
